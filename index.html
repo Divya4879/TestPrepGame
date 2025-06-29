@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Cloud Practitioner Test Prep Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Animated Starfield Background -->
+    <div class="starfield" id="starfield"></div>
+    
+    <!-- Theme Selector -->
+    <div class="theme-selector">
+        <button class="theme-btn active" data-theme="retro">🌈 RETRO</button>
+        <button class="theme-btn" data-theme="matrix">💚 MATRIX</button>
+        <button class="theme-btn" data-theme="cyberpunk">💙 CYBER</button>
+    </div>
+    
+    <!-- Music Controls -->
+    <div class="music-controls">
+        <button class="music-btn" id="musicToggle">🎵 MUSIC</button>
+        <button class="music-btn" id="volumeDown">🔉</button>
+        <button class="music-btn" id="volumeUp">🔊</button>
+    </div>
+    
+    <div class="game-container">
+        <!-- Main Menu Screen -->
+        <div id="mainMenu" class="screen active">
+            <h1 class="game-title">🎓 AWS CLOUD PRACTITIONER</h1>
+            <h2 class="game-subtitle">TEST PREP GAME</h2>
+            
+            <!-- Achievement Progress -->
+            <div class="achievement-progress">
+                <div class="progress-ring">
+                    <svg>
+                        <circle class="background" cx="60" cy="60" r="50"></circle>
+                        <circle class="progress" cx="60" cy="60" r="50" id="achievementProgress"></circle>
+                    </svg>
+                    <div class="progress-text" id="achievementText">0%</div>
+                </div>
+                <div>
+                    <h3>🏆 ACHIEVEMENTS</h3>
+                    <p>Unlock badges by completing challenges!</p>
+                    <div class="achievement-badges" id="achievementBadges">
+                        <!-- Achievement badges will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="level-selection">
+                <h3>SELECT LEVEL</h3>
+                <div class="levels-grid">
+                    <button class="level-btn" data-level="1" id="level1">
+                        <span class="level-number">1</span>
+                        <span class="level-name">CLOUD BASICS</span>
+                        <span class="level-status" id="status1">UNLOCKED</span>
+                    </button>
+                    <button class="level-btn" data-level="2" id="level2">
+                        <span class="level-number">2</span>
+                        <span class="level-name">CORE SERVICES</span>
+                        <span class="level-status" id="status2">LOCKED</span>
+                    </button>
+                    <button class="level-btn" data-level="3" id="level3">
+                        <span class="level-number">3</span>
+                        <span class="level-name">SECURITY & IAM</span>
+                        <span class="level-status" id="status3">LOCKED</span>
+                    </button>
+                    <button class="level-btn" data-level="4" id="level4">
+                        <span class="level-number">4</span>
+                        <span class="level-name">NETWORKING</span>
+                        <span class="level-status" id="status4">LOCKED</span>
+                    </button>
+                    <button class="level-btn" data-level="5" id="level5">
+                        <span class="level-number">5</span>
+                        <span class="level-name">ADVANCED TOPICS</span>
+                        <span class="level-status" id="status5">LOCKED</span>
+                    </button>
+                    <button class="level-btn" data-level="6" id="level6">
+                        <span class="level-number">6</span>
+                        <span class="level-name">SERVERLESS</span>
+                        <span class="level-status" id="status6">LOCKED</span>
+                    </button>
+                    <button class="level-btn" data-level="7" id="level7">
+                        <span class="level-number">7</span>
+                        <span class="level-name">ANALYTICS</span>
+                        <span class="level-status" id="status7">LOCKED</span>
+                    </button>
+                    <button class="level-btn" data-level="8" id="level8">
+                        <span class="level-number">8</span>
+                        <span class="level-name">EXPERT SCENARIOS</span>
+                        <span class="level-status" id="status8">LOCKED</span>
+                    </button>
+                    <button class="level-btn" data-level="9" id="level9">
+                        <span class="level-number">9</span>
+                        <span class="level-name">BILLING & PRICING</span>
+                        <span class="level-status" id="status9">LOCKED</span>
+                    </button>
+                    <button class="level-btn" data-level="10" id="level10">
+                        <span class="level-number">10</span>
+                        <span class="level-name">MOCK EXAM</span>
+                        <span class="level-status" id="status10">LOCKED</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="stats-panel">
+                <div class="stat">
+                    <span class="stat-label">OVERALL PROGRESS</span>
+                    <span class="stat-value" id="overallProgress">0%</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">BEST SCORE</span>
+                    <span class="stat-value" id="bestScore">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">CURRENT LEVEL</span>
+                    <span class="stat-value" id="currentLevel">1</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="gameScreen" class="screen">
+            <div class="game-header">
+                <div class="game-info">
+                    <span>LEVEL <span id="currentLevelDisplay">1</span></span>
+                    <span>QUESTION <span id="questionNumber">1</span>/10</span>
+                </div>
+                <div class="game-stats">
+                    <span>SCORE: <span id="currentScore">0</span></span>
+                    <span>ACCURACY: <span id="accuracy">100%</span></span>
+                </div>
+            </div>
+            
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            
+            <div class="question-container">
+                <div class="question-text" id="questionText">
+                    Loading question...
+                </div>
+                
+                <!-- Question Image (for image-based questions) -->
+                <div id="questionImageContainer" style="display: none;">
+                    <img id="questionImage" class="question-image" alt="Question Image">
+                </div>
+                
+                <!-- Scenario Box (for scenario-based questions) -->
+                <div id="scenarioContainer" class="scenario-question" style="display: none;">
+                    <div id="scenarioText"></div>
+                </div>
+                
+                <!-- Drag and Drop Area (for architecture questions) -->
+                <div id="dragDropContainer" style="display: none;">
+                    <div class="drag-drop-area" id="dragDropArea">
+                        <p>Drag the components to build the correct architecture:</p>
+                    </div>
+                    <div id="draggableItems">
+                        <!-- Draggable items will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Cost Calculator (for pricing questions) -->
+                <div id="costCalculatorContainer" class="cost-calculator" style="display: none;">
+                    <h4>💰 Calculate the monthly cost:</h4>
+                    <div id="costInputs">
+                        <!-- Cost inputs will be populated by JavaScript -->
+                    </div>
+                    <div class="cost-result" id="costResult">Total: $0/month</div>
+                </div>
+                
+                <div class="options-container" id="optionsContainer">
+                    <!-- Options will be populated by JavaScript -->
+                </div>
+                
+                <div class="question-footer">
+                    <button id="submitBtn" class="submit-btn" disabled>SUBMIT ANSWER</button>
+                    <div class="timer">
+                        <span>TIME: <span id="timeLeft">30</span>s</span>
+                    </div>
+                </div>
+                
+                <!-- Explanation Panel -->
+                <div class="explanation-panel" id="explanationPanel">
+                    <div class="explanation-title" id="explanationTitle">✅ CORRECT!</div>
+                    <div class="explanation-text" id="explanationText"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="resultsScreen" class="screen">
+            <div class="results-container">
+                <h2 id="resultsTitle">LEVEL COMPLETE!</h2>
+                
+                <div class="score-breakdown">
+                    <div class="score-item">
+                        <span>QUESTIONS ANSWERED:</span>
+                        <span id="questionsAnswered">0/10</span>
+                    </div>
+                    <div class="score-item">
+                        <span>CORRECT ANSWERS:</span>
+                        <span id="correctAnswers">0</span>
+                    </div>
+                    <div class="score-item">
+                        <span>ACCURACY:</span>
+                        <span id="finalAccuracy">0%</span>
+                    </div>
+                    <div class="score-item">
+                        <span>FINAL SCORE:</span>
+                        <span id="finalScore">0</span>
+                    </div>
+                </div>
+                
+                <div class="level-result" id="levelResult">
+                    <!-- Level progression message -->
+                </div>
+                
+                <div class="results-actions">
+                    <button id="nextLevelBtn" class="action-btn primary">NEXT LEVEL</button>
+                    <button id="retryLevelBtn" class="action-btn">RETRY LEVEL</button>
+                    <button id="mainMenuBtn" class="action-btn">MAIN MENU</button>
+                </div>
+                
+                <div class="review-section">
+                    <h3>REVIEW INCORRECT ANSWERS</h3>
+                    <div id="reviewContainer">
+                        <!-- Incorrect answers review -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="game-footer">
+        Built with <span class="footer-heart">💖</span> by <a href="https://x.com/Curious_being_8" target="_blank" rel="noopener noreferrer">Divya</a> for <a href="https://community.aws/content/2y6egGcPAGQs8EwtQUM9KAONojz/build-games-challenge-build-classics-with-amazon-q-developer-cli" target="_blank" rel="noopener noreferrer">AWS Build Games Challenge</a>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="audio.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
