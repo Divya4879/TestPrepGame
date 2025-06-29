@@ -114,7 +114,7 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: gradientShift 3s ease-in-out infinite;
-    margin-top: 2rem;
+    margin-top: 6rem;
 }
 
 @keyframes gradientShift {
