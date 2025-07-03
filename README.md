@@ -4,11 +4,12 @@
 
 Built with ❤️ by [Divya](https://x.com/Curious_being_8) for the [AWS Build Games Challenge](https://community.aws/content/2y6egGcPAGQs8EwtQUM9KAONojz/build-games-challenge-build-classics-with-amazon-q-developer-cli)
 
-🎮 **[Ready for Deployment](#-deployment)** | 🚀 **Netlify Optimized**
+🎮 Wanna check it out, and play this game?
+Here's the link:- [AWS CLOUD PRACTITIONER TEST PREP GAME](https://aws-cloud-practitioner-retrogame.netlify.app)
 
 ## 🎮 **Game Overview**
 
-Transform your AWS certification study into an engaging retro gaming experience! This comprehensive test prep game combines serious educational content with nostalgic 80s arcade aesthetics, featuring synthwave music, animated starfields, and a complete achievement system.
+Transform your AWS certification study into an engaging retro gaming experience! This comprehensive test prep game combines serious educational content with nostalgic 90s arcade aesthetics, featuring synthwave music, animated starfields, and a complete achievement system.
 
 ### 🌟 **Key Features**
 
@@ -16,7 +17,7 @@ Transform your AWS certification study into an engaging retro gaming experience!
 - **✨ Animated Starfield** - Twinkling stars and shooting star effects  
 - **🏆 Achievement System** - 8 unlockable badges with progress tracking
 - **🎨 Multiple Themes** - Retro (Hot Pink), Matrix (Green), Cyberpunk (Blue)
-- **📚 85+ Questions** - Comprehensive AWS Cloud Practitioner exam coverage across 3 implemented levels
+- **📚 100+ Questions** - Comprehensive AWS Cloud Practitioner exam coverage across 10 implemented levels
 - **🎯 Smart Progression** - Adaptive difficulty with level penalties
 - **💡 Instant Learning** - Detailed explanations after every question
 - **📱 Responsive Design** - Works perfectly on desktop and mobile
@@ -28,8 +29,8 @@ Transform your AWS certification study into an engaging retro gaming experience!
 - **10 Progressive Levels** with increasing difficulty
 - **10 Questions per level** for focused learning sessions
 - **Smart Scoring Rules:**
-  - ≥70% accuracy: Advance to next level ✅
-  - <70% accuracy: Move down one level ⚠️
+  - ≥80% accuracy: Advance to next level ✅
+  - <80% accuracy: Move down one level ⚠️
   - <40% accuracy: Return to Level 1 ❌
 
 ### **Achievement System** 🏆
@@ -77,7 +78,7 @@ Unlock 8 different badges by completing challenges:
 ## 🎨 **Visual & Audio Features**
 
 ### **Retro Aesthetics**
-- **Hot Pink & Cyan Color Scheme** - Authentic 80s neon styling
+- **Hot Pink & Cyan Color Scheme** - Authentic 90s neon styling
 - **Orbitron Font** - Futuristic monospace typography
 - **Glowing Effects** - Neon borders and text shadows throughout
 - **Smooth Animations** - CSS transitions and keyframe animations
@@ -274,7 +275,7 @@ php -S localhost:8000
 
 ## 🎮 **Ready to Start Your AWS Journey?**
 
-**[🚀 Play the Game Now!](index.html)**
+**[🚀 Play the Game Now!](https://aws-cloud-practitioner-retrogame.netlify.app)**
 
 Transform your AWS certification preparation into an engaging, retro gaming adventure. Master cloud concepts, unlock achievements, and prepare for your AWS Cloud Practitioner exam with style!
 
